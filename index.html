@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Font Check</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="toolbar" aria-label="Font controls">
+        <div class="brand">
+          <p class="eyebrow">Local font preview</p>
+          <h1>Font Check</h1>
+        </div>
+
+        <label class="dropzone" for="fontFiles">
+          <input
+            id="fontFiles"
+            type="file"
+            accept=".ttf,.otf,.ttc,.dfont,.woff,.woff2"
+            multiple
+            webkitdirectory
+          >
+          <span class="drop-title">Chọn hoặc thả folder font</span>
+          <span class="drop-meta">Hỗ trợ .ttf, .otf, .ttc, .dfont, .woff, .woff2</span>
+        </label>
+
+        <button id="loadBundledButton" class="primary-button" type="button">Load fonts/</button>
+
+        <div class="controls">
+          <label>
+            <span>Nội dung test</span>
+            <textarea id="sampleText" rows="4">English: The quick brown fox jumps over the lazy dog. Sphinx of black quartz, judge my vow.
+
+Tiếng Việt: Tôi đang kiểm tra dấu tiếng Việt: ă â đ ê ô ơ ư. Đỗ phủ, chữ nghiêng, số 0123456789.</textarea>
+          </label>
+
+          <div class="control-grid">
+            <label>
+              <span>Tìm font</span>
+              <input id="searchInput" type="search" placeholder="Inter, Roboto...">
+            </label>
+
+            <label>
+              <span>Nhóm chữ</span>
+              <select id="categoryInput">
+                <option value="all">Tất cả</option>
+                <option value="sans">Sans serif</option>
+                <option value="serif">Serif</option>
+                <option value="mono">Monospace</option>
+                <option value="script">Script / handwriting</option>
+                <option value="display">Display / decorative</option>
+                <option value="barcode">Barcode / QR</option>
+                <option value="symbol">Symbol / icon</option>
+                <option value="unknown">Chưa rõ</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Cỡ chữ</span>
+              <input id="sizeInput" type="range" min="16" max="96" value="42">
+            </label>
+
+            <label>
+              <span>Weight</span>
+              <select id="weightInput">
+                <option value="400">400 Regular</option>
+                <option value="500">500 Medium</option>
+                <option value="600">600 Semibold</option>
+                <option value="700">700 Bold</option>
+                <option value="800">800 ExtraBold</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Style</span>
+              <select id="styleInput">
+                <option value="normal">Normal</option>
+                <option value="italic">Italic</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="content" aria-live="polite">
+        <div class="summary">
+          <div>
+            <p id="countText">Chưa có font nào.</p>
+            <p class="hint">Bạn có thể kéo thả file font hoặc chọn cả folder font từ máy.</p>
+          </div>
+          <button id="clearButton" type="button">Xóa danh sách</button>
+        </div>
+
+        <div id="emptyState" class="empty">
+          <h2>Bắt đầu bằng cách chọn folder font</h2>
+          <p>Trang này không upload gì cả. Font được load trực tiếp trong trình duyệt của bạn để preview.</p>
+        </div>
+
+        <div id="fontList" class="font-list"></div>
+      </section>
+    </main>
+
+    <script src="fonts-manifest.js?v=1"></script>
+    <script src="app.js?v=2"></script>
+  </body>
+</html>
